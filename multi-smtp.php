@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Multi SMTP
- * Plugin URI: http://subinsb.com/ask/statcounter-popular-posts
+ * Plugin URI: http://subinsb.com/multi-smtp
  * Description: This plugin will configure wp_mail to use SMTP for sending your email. You can add multiple SMTP servers to cycle emails
  * Author: Subin Siby
  * Version: 0.1
@@ -54,12 +54,13 @@ class Plugin {
 			$serverIndex = $useServer;
 
 		$phpmailer->isSMTP();
-		$phpmailer->SMTPSecure = get_option("multiSMTP_server_". $serverIndex ."_security");
 		$phpmailer->Host = get_option("multiSMTP_server_". $serverIndex ."_host");
 		$phpmailer->Port = get_option("multiSMTP_server_". $serverIndex ."_port");
 
 		if(get_option("multiSMTP_server_". $serverIndex ."_username") != null){
 			$phpmailer->SMTPAuth = true;
+			$phpmailer->SMTPSecure = "starttls";
+
 			$phpmailer->Username = get_option("multiSMTP_server_". $serverIndex ."_username");
 			$phpmailer->Password = get_option("multiSMTP_server_". $serverIndex ."_password");
 		}else{
@@ -141,6 +142,7 @@ class Plugin {
 	public function serverSettingsPage(){
 		if(is_numeric(get_option("multiSMTP_lastServer"))){
 		?>
+			<h2>Status</h2>
 			<p><?php echo __("Last email was sent using SMTP server") . " " . (get_option("multiSMTP_lastServer") + 1);?></p>
 		<?php
 		}
@@ -267,7 +269,7 @@ class Plugin {
     	</div>
 			<?php
 		}else{
-			for($i=1;$i < $this->smtpServerCount + 1;$i++){
+			for($i=1;$i <= $this->smtpServerCount + 1;$i++){
 				?>
 				<a class="button" href="<?php echo admin_url("options-general.php?page=multiSMTP-admin&tab=test&test-server=" . ($i - 1));?>">Test SMTP Server <?php echo $i;?></a>
 				<?php
