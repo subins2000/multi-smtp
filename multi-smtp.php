@@ -269,7 +269,7 @@ class Plugin {
     	</div>
 			<?php
 		}else{
-			for($i=1;$i <= $this->smtpServerCount + 1;$i++){
+			for($i=1;$i <= $this->smtpServerCount;$i++){
 				?>
 				<a class="button" href="<?php echo admin_url("options-general.php?page=multiSMTP-admin&tab=test&test-server=" . ($i - 1));?>">Test SMTP Server <?php echo $i;?></a>
 				<?php

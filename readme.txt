@@ -12,6 +12,8 @@ Use multiple SMTP servers to send WordPress emails (wp_mail())
 
 == Description ==
 
+Add multiple SMTP servers and let WordPress send email through each server one by one taking turns.
+
 Cycle between multiple SMTP servers for sending emails through WordPress. By doing this, you can increase the number of emails you can send alltogether.
 
 **Donate**
