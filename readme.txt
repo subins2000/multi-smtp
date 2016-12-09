@@ -5,7 +5,7 @@ Tags: wordpress, smtp, multi smtp, multiple, server, smtp server, email, wp_mail
 Requires at least: 3.0.1
 Tested up to: 4.7
 Stable tag: 0.1
-License: Apachev2 or later
+License: Apachev2
 License URI: https://www.apache.org/licenses/LICENSE-2.0
 
 Use multiple SMTP servers to send WordPress emails (wp_mail())
@@ -18,7 +18,7 @@ Cycle between multiple SMTP servers for sending emails through WordPress. By doi
 
 **Donate**
 
-I was 16 years old when writing this plugin. Please consider a donation to support me. Please....
+If you found this plugin helpful, please consider a donation to support me.
 http://subinsb.com/donate
 
 **Support**
