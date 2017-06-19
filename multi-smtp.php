@@ -43,7 +43,7 @@ class Plugin {
 	 */
 	public function setupPHPMailer( &$phpmailer, $useServer = false ) {
 		$lastServerIndex = get_option("multiSMTP_lastServer");
-		$lastServerIndex = $lastServerIndex !== false && $lastServerIndex != null ? $lastServerIndex : -1;
+		$lastServerIndex = is_numeric($lastServerIndex) ? $lastServerIndex : -1;
 
 		$serverIndex = $lastServerIndex + 1;
 
@@ -269,6 +269,7 @@ class Plugin {
     	</div>
 			<?php
 		}else{
+            echo '<h2>Test SMTP Servers</h2>';
 			for($i=1;$i <= $this->smtpServerCount;$i++){
 				?>
 				<a class="button" href="<?php echo admin_url("options-general.php?page=multiSMTP-admin&tab=test&test-server=" . ($i - 1));?>">Test SMTP Server <?php echo $i;?></a>
