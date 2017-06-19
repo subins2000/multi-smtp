@@ -188,7 +188,7 @@ class Plugin {
       <tr valign="top">
       	<th scope="row">SMTP Username</th>
       	<td>
-      		<input type="text" name="multiSMTP_server_<?php echo $serverIndex;?>_username" value="<?php
+      		<input type="text" name="multiSMTP_server_<?php echo $serverIndex;?>_username" autocomplete="off" value="<?php
       			echo esc_attr( get_option("multiSMTP_server_". $serverIndex ."_username") );
       		?>" />
       	</td>
@@ -196,7 +196,7 @@ class Plugin {
       <tr valign="top">
       	<th scope="row">SMTP Password</th>
       	<td>
-      		<input type="text" name="multiSMTP_server_<?php echo $serverIndex;?>_password" value="<?php
+      		<input type="text" name="multiSMTP_server_<?php echo $serverIndex;?>_password" autocomplete="off" value="<?php
       			echo esc_attr( get_option("multiSMTP_server_". $serverIndex ."_password") );
       		?>" />
       	</td>
